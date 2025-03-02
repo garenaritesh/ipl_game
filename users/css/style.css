@@ -1,0 +1,394 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Jost', sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --body-color: #F9F9FE;
+    --epcl-main-color: #FF4C60;
+    --epcl-secondary-color: #65EBE7;
+    --epcl-titles-color: #454360;
+    --epcl-black-color: #4B4870;
+    --epcl-text-color: #596172;
+    --epcl-border-color: #EEEEEE;
+    --epcl-input-bg-color: #F9F9FE;
+    --box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    --header-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: var(--body-color);
+    background-image: url('../images/bg_img.png');
+    background-size: 100%;
+    /* Adjust grid size */
+    color: #000;
+    height: 100vh;
+    user-select: none;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+/* Curoser Pointer */
+a,
+ul li,
+li,
+.logo,
+h3,
+h2 .title,
+title,
+button,
+input {
+    cursor: pointer;
+}
+
+li,
+a {
+    list-style: none;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Style Navabar */
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+    align-items: center;
+}
+
+nav .logo h1 {
+    color: var(--epcl-black-color);
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+nav .logo h1 span {
+    color: var(--epcl-main-color);
+}
+
+nav ul li {
+    padding: 0.6rem 3rem;
+    border-radius: 3rem;
+    background: transparent;
+    border: 2px solid #000;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    outline: none;
+}
+
+nav ul li img {
+    width: 25px;
+}
+
+#user_me {
+    border-radius: 0;
+    border: none;
+    font-size: 16px;
+}
+
+/* Container Style Here */
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+
+    gap: 1rem;
+}
+
+.container .header_img {
+    margin-bottom: -3%;
+}
+
+.container .header_img img {
+    width: 150px;
+    height: 150px;
+}
+
+.container .header_intro {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.container .header_intro h3 {
+    font-size: 1.5rem;
+}
+
+.container .header_intro h1 {
+    font-size: 2.5rem;
+}
+
+.container .header_intro p {
+    font-weight: 300;
+    font-size: 0.8rem;
+}
+
+.container button {
+    padding: 0.8rem 3rem;
+    border-radius: 3rem;
+    background: #100;
+    color: #fff;
+    border: 1px solid var(--epcl-black-color);
+    outline: none;
+    width: 250px;
+    margin: 1.5rem 0 0 0;
+    /* display: none; */
+    /* Initially hidden */
+}
+
+
+/* User Popup Style Here */
+.user_popup {
+    width: 150px;
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    padding: 0.5 2rem;
+    background: var(--body-color);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    display: none;
+    transition: all ease 0.2s;
+    justify-content: center;
+}
+
+.user_popup .user_action {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+.user_popup .user_action button {
+    padding: 0.5rem 2rem;
+    background: transparent;
+    color: #000;
+    border: none;
+    outline: none;
+}
+
+.user_popup .user_action a {
+    font-size: 1.5rem;
+    color: #000;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Login And Register File Stylling Here */
+
+.form_container {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* box-shadow: var(--box-shadow); */
+    padding: 3rem 5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_container h2 {
+    margin-bottom: 2rem;
+}
+
+.form_container .desc {
+    width: 100%;
+    text-align: end;
+}
+
+.form_container label {
+    font-size: 14px;
+    padding: 0 1rem;
+    font-weight: 400;
+    text-align: start;
+    width: 100%;
+}
+
+.form_container .desc a {
+    color: rgb(15, 67, 209);
+    font-size: 1rem;
+    font-weight: 200;
+}
+
+.form_container input {
+    padding: 0.7rem 1rem;
+    border: none;
+    border: 2px solid var(--epcl-border-color);
+    outline: none;
+    width: 100%;
+}
+
+.form_container button {
+    border-radius: 0rem;
+    width: 100%;
+    padding: 1rem;
+    background: #000;
+    color: var(--body-color);
+    margin: 0;
+    font-size: 1rem;
+    cursor: pointer;
+    /* Initially disabled look */
+}
+
+.form_container #submit-button {
+    border-radius: 0rem;
+    width: 100%;
+    padding: 1rem;
+    background: #000;
+    color: var(--body-color);
+    margin: 0;
+    font-size: 1rem;
+    cursor: not-allowed;
+    opacity: 0.2;
+    /* Initially disabled look */
+}
+
+.form_container #submit-button.enabled {
+    opacity: 1;
+    cursor: pointer;
+}
+
+/* Responsive */
+
+@media(max-width:420px){
+
+    nav {
+        padding: 1rem;
+    }
+
+    nav ul li {
+        padding: 0.6 1rem;
+    }
+
+    .form_container {
+        width: 100%;
+    }
+
+    .form_container {
+        padding: 2rem;
+    }
+
+}
+
+#email.valid {
+    /* border-color: green; */
+    border: 2px solid green;
+}
+
+#email.invalid {
+    border-color: red;
+}
+
+#phone.valid {
+    /* border-color: green; */
+    border: 2px solid green;
+}
+
+#phone.invalid {
+    border-color: red;
+}
+
+#password.valid {
+    /* border-color: green; */
+    border: 2px solid green;
+}
+
+#password.invalid {
+    border-color: red;
+}
+
+.feedback-line.valid {
+    color: green;
+}
+
+.feedback-line.invalid {
+    color: red;
+}
+
+.term {
+    font-size: 14px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.term input[type="checkbox"] {
+    width: 8%;
+    padding: 15px;
+}
+
+.term a {
+    text-decoration: none;
+    color: blue;
+}
+
+
+
+.error {
+    color: red;
+    font-size: 12px;
+    text-align: left;
+    display: none;
+    /* Initially hidden */
+}
+
+
+/* Email Body Style Here */
+.email_body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.email_body .email_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+
+
+.email_body .email_content a {
+    padding: 0.7rem 2rem;
+    background: #000;
+    color: var(--body-color);
+}

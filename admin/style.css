@@ -1,0 +1,989 @@
+/* Google Fonts */
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Jost', sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+
+    /* Another Styllling */
+    --text-color: #414141;
+    --white-color: #ffffff;
+    --hover-text-color: #6b7284;
+
+    /* Fix The Colours */
+    --body-color: #F9F9FE;
+    --epcl-main-color: #FF4C60;
+    --epcl-secondary-color: #65EBE7;
+    --epcl-titles-color: #454360;
+    --epcl-black-color: #4B4870;
+    --epcl-text-color: #596172;
+    --epcl-border-color: #EEEEEE;
+    --epcl-input-bg-color: #F9F9FE;
+    --box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    --header-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: var(--body-color);
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Curoser Pointer */
+a,
+ul li,
+li,
+.logo,
+h3,
+h2 .title,
+title,
+button,
+input {
+    cursor: pointer;
+}
+
+li,
+a {
+    list-style: none;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Not Jobs Panel */
+#panel_not {
+
+    filter: blur(20px);
+    pointer-events: none;
+
+}
+
+#panel_not .left::selection,
+#panel_not .right::selection {
+    user-select: none;
+}
+
+.jobs {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+    color: rgb(12, 13, 27);
+    font-weight: 1000;
+    z-index: 99;
+}
+
+/* Nav Style */
+
+nav {
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+nav .logo {
+    display: flex;
+    flex-direction: column;
+}
+
+nav .info {
+    width: auto;
+    padding: 5px;
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .logo h1 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+nav .logo span {
+    font-size: 0.8rem;
+    margin-top: -8%;
+    color: var(--epcl-main-color);
+    text-transform: uppercase;
+}
+
+nav a {
+    color: var(--body-color);
+    padding: 10px 40px;
+    border-radius: 30px;
+    background: var(--text-color);
+}
+
+/* Panel Style */
+
+.panel {
+    width: 100%;
+    display: flex;
+    height: 89vh;
+    border-bottom: 2px solid var(--text-color);
+    align-items: start;
+}
+
+.panel .left {
+    width: 15%;
+    position: relative;
+    padding: 2rem;
+    overflow: hidden;
+    border-right: 1px solid var(--epcl-border-color);
+    height: 89vh;
+}
+
+.panel .left .menu {
+    width: 100%;
+    /* box-shadow: var(--box-shadow); */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.panel .left .menu a {
+    width: 100%;
+    font-size: 14px;
+    color: var(--epcl-text-color);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid var(--epcl-border-color);
+    transition: all ease 0.2s;
+}
+
+.panel .left .menu a:hover {
+    color: var(--hover-text-color);
+}
+
+.panel .right {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+    position: relative;
+    height: 89vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.panel .right .orders_tab {
+    position: absolute;
+    left: 40%;
+    top: 4%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+}
+
+.panel .right .orders_tab .co_tab {
+    border: none;
+    outline: none;
+    padding: 0.6rem 1rem;
+    background: black;
+    color: var(--white-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.panel .right .orders_tab button {
+    border: none;
+    outline: none;
+    padding: 0.6rem 1rem;
+    color: black;
+    border: 1px solid var(--hover-text-color);
+    background: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.panel .right::-webkit-scrollbar {
+    display: none;
+}
+
+.panel .right .no_orders {
+    width: 100%;
+    padding: 5rem;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.panel .right .no_orders h2 {
+    font-size: 2rem;
+}
+
+.panel .right .add_admin {
+    position: absolute;
+    padding: 10px 40px;
+    cursor: pointer;
+    border-radius: 3px;
+    background: black;
+    color: var(--body-color);
+    top: 13%;
+    left: 90%;
+}
+
+.panel .right h4 {
+    font-size: 16px;
+    color: var(--epcl-titles-color);
+}
+
+
+/* Table Stylling Here */
+table {
+    width: 100%;
+    padding: 10px;
+    border-collapse: collapse;
+}
+
+table th {
+    padding: 5px;
+    background: #f3f4f6;
+    color: var(--text-color);
+    font-size: 14px;
+}
+
+table td {
+    padding: 6px 20px;
+    text-align: start;
+    border-collapse: collapse;
+    background: var(--white-color);
+    color: var(--epcl-text-color);
+    font-size: 13px;
+    text-align: center;
+    height: 100%;
+}
+
+table #std_dtl {
+    text-align: start;
+    padding: 10px 20px;
+    width: 20%;
+}
+
+table i {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+
+table td a {
+    color: var(--epcl-titles-color);
+}
+
+table #action {
+    padding: 6px 30px;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+}
+
+table #action a {
+    width: 2rem;
+    height: 2rem;
+    background: var(--epcl-main-color);
+    color: var(--white-color);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+table #action button {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+table #action .submit_data {
+    background: green;
+}
+
+table td #docx {
+    font-size: 25px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+body::-webkit-scrollbar{ 
+    display: none;
+}
+
+
+/* View All Documents Page */
+
+.docx {
+    width: 80%;
+    margin-left: 10%;
+    padding: 100px;
+    position: relative;
+    background: var(--white-color);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.docx #back {
+    font-size: 30px;
+    font-weight: 600;
+    z-index: 99;
+    color: var(--epcl-black-color);
+    cursor: pointer;
+    position: absolute;
+    top: 2%;
+    left: 5%;
+    transition: all ease 0.2s;
+}
+
+.docx #back:hover {
+    scale: 1.2;
+}
+
+.docx .docx_box {
+    margin-top: 3%;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.docx .docx_box span {
+    position: absolute;
+    z-index: -99;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5),
+        0 0 10px rgba(255, 255, 255, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.6);
+    padding: 10px 20px;
+    /* border: 3px solid rgba(255, 255, 255, 0.8); */
+    /* border-radius: 15px; */
+    /* background: rgba(255, 255, 255, 0.2); */
+    text-align: center;
+    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); */
+    /* backdrop-filter: blur(5px); */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.docx .docx_box span:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.docx .docx_box img {
+    width: 60%;
+    position: relative;
+    object-fit: cover;
+    cursor: pointer;
+    transition: all ease 0.2s;
+    /* filter: blur(5px); */
+}
+
+.docx .docx_box:hover img {
+
+    filter: blur(2px);
+
+}
+
+.docx .docx_box:hover span {
+    z-index: 99;
+}
+
+/* Admins */
+
+.admin_form {
+    position: absolute;
+    top: -50%;
+    left: 25%;
+    width: 50%;
+    box-shadow: var(--box-shadow);
+    background: var(--white-color);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: all ease 0.2s;
+}
+
+.admin_form.active {
+    top: 20%;
+}
+
+nav.blur,
+.panel.blur {
+    filter: blur(6px);
+    pointer-events: none;
+}
+
+.admin_form #close_form {
+    position: absolute;
+    top: 5%;
+    left: 93%;
+    font-size: 25px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.update_admin_form #update_close_form {
+    position: absolute;
+    top: 5%;
+    left: 93%;
+    font-size: 25px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.admin_form form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.admin_form form input {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: 1px solid var(--epcl-border-color);
+    cursor: pointer;
+}
+
+.admin_form .error-message {
+    color: red;
+    font-size: 13px;
+}
+
+.admin_form form button {
+    padding: 10px;
+    background: black;
+    color: var(--white-color);
+    width: 100%;
+}
+
+/* Update Admin Form */
+.update_admin_form {
+    /* position: absolute; */
+    top: 15%;
+    left: 25%;
+    width: 100%;
+    box-shadow: var(--box-shadow);
+    background: var(--white-color);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: all ease 0.2s;
+}
+
+.update_admin_form form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.update_admin_form form input {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: 1px solid var(--epcl-border-color);
+    cursor: pointer;
+}
+
+
+.update_admin_form .error-message {
+    color: red;
+    font-size: 13px;
+}
+
+.update_admin_form form button {
+    padding: 10px;
+    background: black;
+    color: var(--white-color);
+    width: 100%;
+}
+
+
+/* Admin Login Form Stylling Here */
+.form_container {
+    width: 30%;
+    margin: auto;
+    box-shadow: var(--box-shadow);
+    background: var(--white-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.form_container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+}
+
+.form_container form input {
+    width: 100%;
+    padding: 10px;
+    background: var(--epcl-input-bg-color);
+    outline: none;
+    border: 1px solid var(--text-color);
+    cursor: pointer;
+}
+
+.form_container form button {
+    width: 100%;
+    padding: 10px;
+    color: var(--white-color);
+    background: black;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.form_container h3 {
+    color: var(--text-color);
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.form_container h3 span {
+    color: var(--hover-text-color);
+}
+
+
+/* Notification Bar Panel */
+
+.container {
+    width: 100%;
+    padding: 10px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: start;
+    justify-content: start;
+}
+
+.container .contacts {
+    width: 600px;
+    background: var(--white-color);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: auto;
+    padding: 25px;
+}
+
+.container .contacts .top {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+    color: var(--epcl-titles-color);
+}
+
+.container .contacts .top span {
+    padding: 2px;
+    background: var(--epcl-black-color);
+    border-radius: 50%;
+}
+
+.container .contacts .msgs {
+    width: 100%;
+    height: auto;
+    color: var(--epcl-text-color);
+}
+
+.container .contacts .reply {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    gap: 0;
+}
+
+#address_td {
+    overflow-wrap: break-word;
+    /* Ensure long words wrap */
+    word-wrap: break-word;
+    /* For older browsers */
+    font-size: 12px;
+    font-weight: 600;
+    word-break: break-word;
+    width: 20%;
+}
+
+#more_dtl {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+
+.panel .right .columns .select-column {
+    padding: 10px;
+}
+
+/* Remark Form Stylling Here */
+.remark_form {
+    width: 40%;
+    margin-left: 30%;
+    position: absolute;
+    border-radius: 20px;
+    background: var(--white-color);
+    box-shadow: var(--box-shadow);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    top: 10%;
+}
+
+.remark_form h3 {
+    text-align: center;
+    color: var(--epcl-text-color);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.remark_form form {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+}
+
+.remark_form form button {
+    padding: 10px;
+    color: var(--body-color);
+    width: 100%;
+    background: black;
+    border: 1px solid black;
+    outline: none;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.remark_form form input,
+.remark_form form textarea {
+    width: 100%;
+    border: 1px solid var(--epcl-border-color);
+    outline: none;
+    cursor: pointer;
+    background: var(--epcl-input-bg-color);
+    padding: 10px;
+}
+
+.remark_form .remark_thing .remark_form form #remarkarea {
+    resize: none;
+}
+
+#cls_remark_form {
+    position: absolute;
+    top: 5%;
+    left: 90%;
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+#open_remark {
+    scale: 1.1;
+}
+
+/* Print Button Style */
+#print_btn {
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: black;
+    color: var(--white-color);
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 3px;
+    position: absolute;
+    top: 12%;
+    left: 90%;
+    transition: all ease 0.2s;
+}
+
+#print_btn:hover {
+    background: var(--epcl-black-color);
+}
+
+/* For Printing System Css Rule */
+
+
+.container .contacts .reply form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 0;
+}
+
+.container .contacts .reply form input {
+    padding: 15px;
+    width: 90%;
+    border: 1px solid var(--epcl-border-color);
+    outline: none;
+}
+
+.container .contacts .reply form button {
+    padding: 11px;
+    cursor: pointer;
+    border: none;
+    width: 10%;
+    outline: none;
+    background: black;
+    color: var(--body-color);
+}
+
+.container .contacts .reply form button i {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+
+/* USer Form VIew Style */
+
+/* Remark Form Stylling Here */
+.remark_thing {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    gap: 1rem;
+    position: relative;
+    padding: 15px;
+}
+
+.remark_thing h4 {
+    color: var(--hover-text-color);
+
+}
+
+.remark_thing .things {
+    width: 150px;
+    /* border: 1px solid var(--epcl-black-color); */
+    padding: 8px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* gap: 0.5rem; */
+}
+
+.remark_thing .things label {
+    font-size: 13px;
+    color: var(--epcl-text-color);
+    width: 80%;
+}
+
+.remark_form .things input {
+    width: 20%;
+}
+
+
+.container form {
+    width: 400px;
+    padding: 20px;
+    background: var(--white-color);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.container form textarea {
+    width: 100%;
+    resize: none;
+    outline: none;
+    border: 1px solid var(--epcl-border-color);
+    padding: 15px;
+}
+
+.container form button {
+    padding: 10px 50px;
+    background: black;
+    color: var(--white-color);
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+}
+
+/* order Page Stylling Here */
+
+.orders {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: start;
+    justify-content: start;
+}
+
+.orders .order_card {
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    gap: 1rem;
+    padding: 2rem 1rem;
+    /* box-shadow: var(--box-shadow); */
+    border: 2px solid #e5e7eb;
+}
+
+.orders .order_card .order_col {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+.orders .order_card .col1 {
+    width: 10%;
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.orders .order_card .col1 h2 {
+    font-size: 2.5rem;
+}
+
+
+.orders .order_card .col2 {
+    gap: 1rem;
+    width: 30%;
+}
+
+.orders .order_card .col3,
+.orders .order_card .col4 {
+    gap: 1rem;
+    width: 30%;
+}
+
+.orders .order_card .col2 .product_name {
+    color: var(--hover-text-color);
+    font-weight: 400;
+    font-size: 0.970rem;
+}
+
+.orders .order_card .col2 .user_order_dtl h3 {
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--text-color);
+}
+
+.orders .order_card .col2 .user_order_dtl p {
+    font-size: 14px;
+    max-width: 100%;
+    font-weight: 400;
+    color: var(--hover-text-color);
+}
+
+.orders .order_card .col3 p,
+.orders .order_card .col3 .product_dtl {
+    color: var(--text-color);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.orders .order_card .col3 .product_dtl {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.orders .order_card .col3 .product_dtl span {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    letter-spacing: 0.03rem;
+}
+
+.orders .order_card .col4 {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.orders .order_card .col4 form {
+    width: 80%;
+}
+
+
+.orders .order_card .col4 form select {
+    padding: 0.5rem 1rem;
+    width: 100%;
+    border: 1px solid var(--epcl-border-color);
+}
+
+.orders .order_card .col4 form select option {
+    padding: 0.6rem;
+}
+
+.orders .order_card .col4 form button {
+    padding: 0.5rem 2rem;
+    border: none;
+    outline: none;
+    background: black;
+    color: var(--white-color);
+    margin-top: 5%;
+}

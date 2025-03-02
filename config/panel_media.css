@@ -1,0 +1,119 @@
+.container {
+    width: 100%;
+    padding: 1rem;
+    background: #fff;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.current_retain_player_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.current_retain_player_info .retain_player_info {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.current_retain_player_info .retain_player_info .player_info_dtl {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+}
+
+.current_retain_player_info .retain_player_info .player_info_dtl img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.current_retain_player_info .retain_player_info p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.current_retain_player_info .retain_player_info p span {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+
+.retain_team_desc {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.retain_team_desc .team_retain_info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 1rem;
+}
+
+.retain_team_desc .team_retain_info input {
+
+    padding: 0.7rem 1rem;
+    width: 200px;
+    font-size: 2rem;
+    text-align: center;
+    outline: none;
+    border: 1px solid var(--epcl-border-color);
+
+}
+
+
+.retain_team_desc button {
+    width: 20%;
+    background: #000;
+    color: var(--body-color);
+    outline: none;
+    border: none;
+    padding: 0.7rem 2rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 40%;
+}
+
+.retain_team_desc button img {
+    width: 30px;
+}
+
+.current_team_bid_div {
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.current_team_bid_div img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+}
