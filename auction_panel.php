@@ -213,86 +213,74 @@ $current_team_rtm = mysqli_num_rows(mysqli_query($db, "select * from live_auctio
         <button>Go To Make Playing XI</button>
     </div>
 
-    <!-- Main Panel -->
-    <?php
-    if ($squad_player_count == 15) {
+
+    <div class="panel_container">
+        <div class="left player_desc">
+            <h2 id="response">Current Player Details</h2>
+
+            <div class="player_info" id="player_info">
+                <h2>Loading player details...</h2>
+            </div>
+        </div>
+
+        <div class="right bid_desc" id="bid_desc_panel">
+            <h2>Current Bid Details</h2>
+            <div class="bid_info">
+                <div class="bid_banner">
+                    <img src="admin/assets/header_img.png" alt="">
+                </div>
+                <div class="bid_stats">
+                    <div id="bid_team_bidget"></div>
+                    <div id="bid_player_budget"></div>
+                    <h3 class="current_amount">Current Bid :-</h3>
+                    <input type="hidden" id="team_id" value="<?php echo $user_data['team_id'] ?>">
+                    <button class="bid_button" id="bid_button">Bid</button>
+
+                </div>
+            </div>
+
+            <div class="current_team_login_action_panel">
+                <div class="team_login_banner">
+                    <img src="admin/images/teams/<?php echo $user_data['team_logo']; ?>" alt="">
+                </div>
+                <div class="current_team_info_auction">
+                    <h5><?php echo $user_data['team_name']; ?></h5>
+                    <h5>Budget :- 100 Cr</h5>
+                    <h5 id="current_budget_of_team">Current Budget :- 0 Cr</h5>
+                    <!-- <input type="text" id="total_players"> -->
+                    <h5 id="RTM">RTM :-
+                        <?php if ($current_team_rtm == 0) {
+                            echo "🎴 🎴 🎴";
+                        } else if ($current_team_rtm == 1) {
+                            echo "🎴 🎴";
+                        } else if ($current_team_rtm == 2) {
+                            echo "🎴";
+                        } else {
+                            echo "you rtm are completed";
+                        } ?>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RTM CARD STYLE UNIQUE TO DESIGN -->
+    <?php if ($current_team_rtm > 3) {
         ?>
-        <div class="panel_container">
-            <div class="left player_desc">
-                <h2 id="response">Current Player Details</h2>
 
-                <div class="player_info" id="player_info">
-                    <h2>Loading player details...</h2>
-                </div>
-            </div>
+        <?php
+    } else { ?>
 
-            <div class="right bid_desc" id="bid_desc_panel">
-                <h2>Current Bid Details</h2>
-                <div class="bid_info">
-                    <div class="bid_banner">
-                        <img src="admin/assets/header_img.png" alt="">
-                    </div>
-                    <div class="bid_stats">
-                        <div id="bid_team_bidget"></div>
-                        <div id="bid_player_budget"></div>
-                        <h3 class="current_amount">Current Bid :-</h3>
-                        <input type="hidden" id="team_id" value="<?php echo $user_data['team_id'] ?>">
-                        <button class="bid_button" id="bid_button">Bid</button>
-
-                    </div>
-                </div>
-
-                <div class="current_team_login_action_panel">
-                    <div class="team_login_banner">
-                        <img src="admin/images/teams/<?php echo $user_data['team_logo']; ?>" alt="">
-                    </div>
-                    <div class="current_team_info_auction">
-                        <h5><?php echo $user_data['team_name']; ?></h5>
-                        <h5>Budget :- 100 Cr</h5>
-                        <h5 id="current_budget_of_team">Current Budget :- 0 Cr</h5>
-                        <!-- <input type="text" id="total_players"> -->
-                        <h5 id="RTM">RTM :-
-                            <?php if ($current_team_rtm == 0) {
-                                echo "🎴 🎴 🎴";
-                            } else if ($current_team_rtm == 1) {
-                                echo "🎴 🎴";
-                            } else if ($current_team_rtm == 2) {
-                                echo "🎴";
-                            } else {
-                                echo "you rtm are completed";
-                            } ?>
-                        </h5>
-                    </div>
-                </div>
+        <div class="rtm_card_style" id="rtm_style">
+            <div class="rtm_card">
+                <input type="hidden" id="rtm_check" value="<?php echo $current_team_rtm; ?>">
+                <h3>🎴</h3>
             </div>
         </div>
 
-        <!-- RTM CARD STYLE UNIQUE TO DESIGN -->
-        <?php if ($current_team_rtm > 3) {
-            ?>
-
-            <?php
-        } else { ?>
-
-            <div class="rtm_card_style" id="rtm_style">
-                <div class="rtm_card">
-                    <input type="hidden" id="rtm_check" value="<?php echo $current_team_rtm; ?>">
-                    <h3>🎴</h3>
-                </div>
-            </div>
-
-        <?php } ?>
-
-    <?php } else { ?>
-        <!-- Congratulation Animation Here -->
-        <div class="congrats_div">
-            <div class="congrats_text">
-                <div class="congrats">🎉 Congratulations! 🎉</div>
-                <h1>🎉 You Qualify for Playoff Rounds! 🎉</h1>
-            </div>
-            <button>Go To Make Playing XI</button>
-        </div>
     <?php } ?>
+
+
 
     <!-- JavaScript to Fetch Player Data -->
     <!-- Fetch The Bid Amount -->
@@ -311,7 +299,7 @@ $current_team_rtm = mysqli_num_rows(mysqli_query($db, "select * from live_auctio
 
                         const SquadCount = response.data.squad_members;
                         const TeamBudget = response.data.team_budget;
-    
+
 
                         if (SquadCount == 15) {
                             document.querySelector(".panel_container").style.display = 'none';
@@ -323,13 +311,7 @@ $current_team_rtm = mysqli_num_rows(mysqli_query($db, "select * from live_auctio
                         }
 
                         // DisQualify System
-                        if (SquadCount < 15 || TeamBudget < 0) {
-                            document.querySelector('.congrats_div').style.display = 'flex';
-                            document.querySelector(".congrats").innerHTML = "👋 See you next season ! 🖐️";
-                            document.querySelector(".congrats").style.color = "red";
-                            document.querySelector(".panel_container").style.display = 'none';
-                            document.getElementById("quali_error").innerHTML = "🤞 You'r Disqualify for Playoff ! 🤙";
-                        }
+                  
 
 
 
