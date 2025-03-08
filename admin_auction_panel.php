@@ -117,9 +117,9 @@ if (isset($_REQUEST['sold'])) {
                 ?>
                 <div class="player_info">
                     <div class="player_banner">
-                        <?php 
-                        
-                        if($fetch_player['player_pic'] == '') {
+                        <?php
+
+                        if ($fetch_player['player_pic'] == '') {
                             echo "<img src='admin/images/players/default_player_img.png' style='margin-left: 20%; width: 1000%;'>";
                         }
 
@@ -133,13 +133,19 @@ if (isset($_REQUEST['sold'])) {
                                 echo "🏏";
                             } else if ($fetch_player['category'] == 'Bow') {
                                 echo "<i class='bx bxs-cricket-ball'></i>";
-                            } else if($fetch_player['category'] == 'AR'){ 
+                            } else if ($fetch_player['category'] == 'AR') {
                                 echo "<img src='admin/assets/ar.svg' style='width: 50px;'>";
                             } else {
                                 echo "<img src='admin/assets/teams-wicket-keeper-icon.svg' style='width: 50px;'>";
-                            }?>
+                            } ?>
                         </h3>
-                        <h3><span>Base Price :- </span> <?php if($fetch_player['base_price'] == '20L') { echo "20 Lakhs"; } else { echo $fetch_player['base_price']. " Cr ";} ?></h3>
+                        <h3><span>Base Price :- </span>
+                            <?php if ($fetch_player['base_price'] == '20L') {
+                                echo "20 Lakhs";
+                            } else {
+                                echo $fetch_player['base_price'] . " Cr ";
+                            } ?>
+                        </h3>
                         <h3><span>RTM :- </span>
                             <?php
                             $rtm_team_id = $fetch_player['retain_team'];
@@ -200,6 +206,8 @@ if (isset($_REQUEST['sold'])) {
 
     <!-- Javascript file content here -->
 
+    
+
     <!-- Fetch The Bid Amount -->
     <script>
         // Function to fetch live bid details
@@ -216,7 +224,7 @@ if (isset($_REQUEST['sold'])) {
                         document.querySelector(".current_amount").innerHTML = `Current Bid :- ${response.data.bid_amount} Cr`;
                         document.querySelector(".bid_banner img").src = response.data.team_logo;
                         document.getElementById("team_id").value = response.data.team_id;
-                        document.getElementById("current_team_bid_budget").value = response.data.budget;
+                        document.getElementById("current_team_bid_budget").value = response.data.bid_team_budget;
                         document.getElementById("player_sold_amount").value = response.data.bid_amount; // ✅ input box में bid_amount सेट करना
                     }
                 }
@@ -246,7 +254,7 @@ if (isset($_REQUEST['sold'])) {
         }
 
         // Auto-refresh bid every 3 seconds
-        setInterval(fetchBidDetails, 3000);
+        setInterval(fetchBidDetails, 50);
 
         // Click event for bid button
         document.querySelector(".bid_stats button").addEventListener("click", placeBid);

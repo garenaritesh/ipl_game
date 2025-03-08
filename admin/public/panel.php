@@ -71,6 +71,7 @@ $admins_data = mysqli_fetch_assoc($res);
                     <a href="auction_data.php"><i class='bx bxs-data'></i><p>Auction Data</p></a>
                     <a href="manage_auction.php"><i class='bx bxs-castle'></i><p>Start Auction</p></a>
                     <a href="players.php"><i class='bx bx-user-check'></i><p>Players</p></a>
+                    <a href="../../admin_auction_panel.php" target="_blank"><i class='bx bxs-ghost'></i>Admin Auction</a>
                     <a href="../../team_selection.php" target="_blank"><span><img src="../assets/hand_wave.png" style="width: 25px;" alt=""></span>Team Selection</a>
             
                 </div>

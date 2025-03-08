@@ -41,7 +41,7 @@ $user_data = mysqli_fetch_assoc(mysqli_query($db, "select * from teams where tea
 
         <ul class="nav_list">
             <li>Home</li>
-            <li onclick="location.href = '#">My Team</li>
+            <li onclick="location.href = 'my_team.php'">My Team</li>
         </ul>
 
         <!-- Account Login or Signup System Here -->

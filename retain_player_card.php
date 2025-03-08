@@ -10,6 +10,8 @@ if (isset($_REQUEST['retain'])) {
     $res_retain = mysqli_query($db, $sql);
     $retain_data = mysqli_fetch_assoc($res_retain);
     $retain_team_id = $retain_data['retain_team'];
+    $bid_team_id = $retain_data['bid_team_id'];
+    $fetch_bid_team_budget = mysqli_fetch_assoc(mysqli_query($db,"select * from auction_panel where team_id = '$bid_team_id'"));
     $fetch_retain_team_budget = mysqli_fetch_assoc(mysqli_query($db, "select * from auction_panel where team_id = '$retain_team_id'"));
 }
 
@@ -20,7 +22,7 @@ if (isset($_REQUEST['retain_yes'])) {
     $bid_amount = $_REQUEST['bid_amount'];
     $player_current_bid_amount = $retain_data['bid_amount'];
 
-    if ($bid_amount > $player_current_bid_amount) {
+    if ($bid_amount == $player_current_bid_amount) {
 
         $player_name = $retain_data['player_name'];
         $player_pic = $retain_data['player_pic'];
@@ -34,6 +36,41 @@ if (isset($_REQUEST['retain_yes'])) {
         // Update The Sold Player Team Amount ollr Budget
         $team_now_budget = $_REQUEST['budget'];
         $sold_team_budget = $team_now_budget - $bid_amount;
+        $updater_team_budget = mysqli_query($db, "update auction_panel set budget = '$sold_team_budget' where team_id = '$team_id' ");
+
+        // Remove Player Table
+        $remove_player_query = mysqli_query($db, "delete from live_players where player_id = '$player_id'");
+
+        // Remove From Current Player 
+        $remove_current_player_query = mysqli_query($db, "delete from selected_auction_player where player_id = '$player_id'");
+
+        header("location:admin_auction_panel.php");
+    } else {
+        echo "Your bid is lower than the current bid";
+    }
+
+}
+
+
+// Retain Yes To Update Data
+if (isset($_REQUEST['retain_no'])) {
+
+    $bid_amount = $_REQUEST['bid_amount'];
+    $player_current_bid_amount = $retain_data['bid_amount'];
+
+    if ($bid_amount == $player_current_bid_amount) {
+
+        $player_name = $retain_data['player_name'];
+        $player_pic = $retain_data['player_pic'];
+        $player_cate = $retain_data['category'];
+        $player_id = $retain_data['player_id'];
+        $team_id = $retain_data['bid_team_id'];
+
+        $sold_query = mysqli_query($db, "insert into live_auction(player_id,team_id,player_name,player_pic,player_cate,price) values('$player_id','$team_id','$player_name','$player_pic','$player_cate','$bid_amount')");
+
+        // Update The Sold Player Team Amount ollr Budget
+        $bid_team_now_budget = $fetch_bid_team_budget['budget'];
+        $sold_team_budget = $bid_team_now_budget - $bid_amount;
         $updater_team_budget = mysqli_query($db, "update auction_panel set budget = '$sold_team_budget' where team_id = '$team_id' ");
 
         // Remove Player Table
@@ -275,6 +312,8 @@ if (isset($_REQUEST['retain_yes'])) {
                 </div>
                 <input type="text" name="bid_amount" placeholder="Retain Price" required>
                 <input type="hidden" name="budget" value="<?php echo $fetch_retain_team_budget['budget'] ?>">
+                <!-- Bid Team Budget -->
+                 <input type="text" name="bid_team_budget" value="<?php echo $fetch_bid_team_budget['budget']?>" readonly>
                 <div class="current_team_bid_div">
                     <?php
                     $retain_team_bid_id = $retain_data['retain_team'];
@@ -286,6 +325,10 @@ if (isset($_REQUEST['retain_yes'])) {
             <button name="retain_yes"><img
                     src="admin/images/teams/<?php echo $fetch_current_team_bid_logo['team_logo'] ?>" alt=""> To <img
                     src="admin/images/teams/<?php echo $fetch_retain_team_bid_logo['team_logo'] ?>" alt=""></button>
+            <button name="retain_no">
+                <img src="admin/images/teams/<?php echo $fetch_retain_team_bid_logo['team_logo'] ?>" alt=""> To<img
+                    src="admin/images/teams/<?php echo $fetch_current_team_bid_logo['team_logo'] ?>" alt="">
+            </button>
         </form>
 
     </div>
